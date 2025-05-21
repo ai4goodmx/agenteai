@@ -1,34 +1,90 @@
+from pathlib import Path
+
+# Contenido HTML básico para el one-page con el agente embebido
+html_content = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agente Virtual</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4Good - Agente Virtual</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #333; }
+        header, footer { background-color: #222; color: white; padding: 1em; text-align: center; }
+        nav a { margin: 0 1em; color: white; text-decoration: none; }
+        section { padding: 2em; max-width: 1000px; margin: auto; }
+        h1, h2 { color: #0057b7; }
+        .hero { background: #e0e0e0; padding: 4em 2em; text-align: center; }
+        .hero button { padding: 1em 2em; font-size: 1em; background: #0057b7; color: white; border: none; cursor: pointer; }
+        .agent { margin-top: 2em; text-align: center; }
+    </style>
 </head>
 <body>
 
-  <!-- Script del agente D-ID -->
-  <script
-    type="module"
-    src="https://agent.d-id.com/v1/index.js"
-    data-name="did-agent"
-    data-mode="fabio"
-    data-client-key="Z29vZ2xlLW9hdXRoMnwxMTY3NDg4MzE5OTM3MDc5NTk4MDU6eDFTTXE5dEpIdkQxdDlRNThQRmlt"
-    data-agent-id="agt_5wXXD9YR"
-    data-monitor="true">
-  </script>
+<header>
+    <h1>AI4Good México</h1>
+    <nav>
+        <a href="#sobre">Sobre el Agente</a>
+        <a href="#casos">Casos de Uso</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
 
+<section class="hero">
+    <h2>Impulsa tu transformación digital con inteligencia artificial</h2>
+    <p>Conoce a nuestro agente virtual, tu guía hacia la innovación empresarial sostenible.</p>
+    <button onclick="document.getElementById('agente').scrollIntoView()">Interactúa con el Agente</button>
+</section>
+
+<section id="sobre">
+    <h2>Sobre el Agente</h2>
+    <p>Nuestro agente virtual, basado en la experiencia de Basilio Karamanos, está diseñado para asesorarte en la adopción estratégica de la inteligencia artificial y la transformación digital.</p>
+    <ul>
+        <li>Asesoría personalizada en IA</li>
+        <li>Estrategias de transformación digital</li>
+        <li>Desarrollo de talento y equipos de alto desempeño</li>
+    </ul>
+</section>
+
+<section id="casos">
+    <h2>Casos de Uso</h2>
+    <ul>
+        <li><strong>PYMES:</strong> Optimización de procesos y adopción de IA</li>
+        <li><strong>Educación:</strong> Integración de IA en programas académicos</li>
+        <li><strong>Corporativos:</strong> Estrategias de innovación y transformación digital</li>
+    </ul>
+</section>
+
+<section id="agente" class="agent">
+    <h2>Interactúa con el Agente Virtual</h2>
+    <script
+        type="module"
+        src="https://agent.d-id.com/v1/index.js"
+        data-name="did-agent"
+        data-mode="fabio"
+        data-client-key="Z29vZ2xlLW9hdXRoMnwxMTY3NDg4MzE5OTM3MDc5NTk4MDU6eDFTTXE5dEpIdkQxdDlRNThQRmlt"
+        data-agent-id="agt_5wXXD9YR"
+        data-monitor="true">
+    </script>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas o deseas colaboración? Contáctanos:</p>
+    <p><strong>Email:</strong> basilio@ai4good.mx</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/basiliokaramanos" target="_blank">linkedin.com/in/basiliokaramanos</a></p>
+</section>
+
+<footer>
+    <p>© 2025 AI4Good México | Todos los derechos reservados</p>
+</footer>
 
 </body>
 </html>
+"""
+
+# Guardar como archivo index.html
+output_path = Path("/mnt/data/index.html")
+output_path.write_text(html_content, encoding="utf-8")
+
+output_path.name
